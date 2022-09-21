@@ -6,13 +6,12 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/08/23 21:31:00 by schuah           ###   ########.fr        #
+#    Updated: 2022/09/21 14:02:30 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 LIBFT		=	libft.a
-ARRC		=	ar rcs
 CC			=	gcc
 RM			=	rm -f
 CFLAGS		=	-Wall -Wextra -Werror -Imlx
@@ -34,7 +33,7 @@ OBJS_DIR	=	objs/
 
 all:			
 				mkdir -p $(OBJS_DIR)
-				make create_libft
+				make libft
 				make $(NAME)
 
 bonus:			
@@ -45,9 +44,9 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 				$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) $(SRCS) $(MLXFLAGS) -o $(NAME)
+				$(CC) $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) $(OBJS) $(MLXFLAGS) -o $(NAME)
 
-create_libft:
+libft:
 				make -C $(LIBFT_DIR)
 
 clean:
@@ -60,4 +59,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all bonus create_libft clean fclean re
+.PHONY:			all bonus libft clean fclean re
