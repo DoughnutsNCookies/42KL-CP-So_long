@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_mapcheck_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:08:30 by schuah            #+#    #+#             */
-/*   Updated: 2022/08/06 17:22:53 by schuah           ###   ########.fr       */
+/*   Updated: 2022/10/31 17:15:23 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,16 @@
 void	sl_checkfileformat(t_gm *gm, int ac, char **av)
 {
 	int		i;
-	int		j;
-	int		wc;
-	int		errno;
-	char	**input;
 
 	if (ac < 2)
 		sl_fullexit("Error\nNo file input\n", 2);
 	i = 0;
-	errno = 0;
 	while (++i < ac)
 	{
-		wc = ft_getwc(av[i], '.');
-		input = ft_split(av[i], '.');
-		if (ft_strncmp(input[wc - 1], "ber", 4) != 0 && errno == 0)
-			errno = 1;
+		if (ft_strncmp(&av[i][ft_strlen(av[1]) - 4], ".ber", 4) != 0)
+			sl_fullexit("Error\nInvalid file format\n", 2);
 		gm->map.total_level++;
-		j = -1;
-		while (++j < wc)
-			free(input[j]);
-		free(input);
 	}
-	if (errno == 1)
-		sl_fullexit("Error\nNo file input\n", 2);
 }
 
 /* Sets default values for special tiles */
