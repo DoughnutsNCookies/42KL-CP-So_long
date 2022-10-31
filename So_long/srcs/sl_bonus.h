@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:19:36 by schuah            #+#    #+#             */
-/*   Updated: 2022/08/06 17:11:52 by schuah           ###   ########.fr       */
+/*   Updated: 2022/10/31 13:23:25 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,6 @@
 # define STEPS_X	16
 # define STEPS_Y	8
 # define PAD_Y		16
-
-/* The 4 values that define a color
-typedef struct s_color {
-	int	r;
-	int	g;
-	int	b;
-	int	a;
-}	t_color;
-
-all info needed for an image
-typedef struct s_image {
-	void		*reference;
-	t_vector	size;
-	char		*pixels;
-	int			bits_per_pixel;
-	int			line_size;
-	int			endian;
-}	t_image; */
 
 /* Vector with an x and y */
 typedef struct s_vector
