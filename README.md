@@ -1,2 +1,2 @@
 # 42KL-CP-So_long
-My so_long project - All files are subjected to "The Norm"
+My So_long project - All files are subjected to "The Norm"
