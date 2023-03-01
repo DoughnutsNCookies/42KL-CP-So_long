@@ -6,14 +6,15 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/09/21 14:02:30 by schuah           ###   ########.fr        #
+#    Updated: 2023/03/01 14:14:02 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 LIBFT		=	libft.a
 CC			=	gcc
-RM			=	rm -f
+RM			=	rm -rf
+MKDIR		=	mkdir -p
 CFLAGS		=	-Wall -Wextra -Werror -Imlx
 MLXFLAGS	=	-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 SRCS_FILES	=	sl_main_bonus \
@@ -32,12 +33,12 @@ LIBFT_DIR	=	libft
 OBJS_DIR	=	objs/
 
 all:			
-				mkdir -p $(OBJS_DIR)
+				$(MKDIR) $(OBJS_DIR)
 				make libft
 				make $(NAME)
 
 bonus:			
-				mkdir -p $(OBJS_DIR)
+				$(MKDIR) $(OBJS_DIR)
 				make $(NAME)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
@@ -50,12 +51,12 @@ libft:
 				make -C $(LIBFT_DIR)
 
 clean:
-				rm -rf $(OBJS_DIR)
+				$(RM) $(OBJS_DIR)
 				make clean -C $(LIBFT_DIR)
 
 fclean:			clean
 				make fclean -C $(LIBFT_DIR)
-				rm -rf $(NAME)
+				$(RM) $(NAME)
 
 re:				fclean all
 
